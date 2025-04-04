@@ -12,4 +12,8 @@ Conectar PHP con MySQL te proporciona las herramientas para desarrollar aplicaci
 
 ---
 
+🔗 Para más información detallada, **comandos** y ejemplos de conexión, visita la [documentación completa aquí](https://luismi14.github.io/Php_Mysql.github.io/).
+
+---
+
 *¡Listo para empezar?* 🌐
