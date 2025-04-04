@@ -1,1 +1,159 @@
-Hello World
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexión PHP con MySQL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        section {
+            margin: 20px;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .command-line {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            font-family: "Courier New", Courier, monospace;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow-x: auto;
+            word-wrap: break-word;
+        }
+
+        .btn-link {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Conexión PHP con MySQL</h1>
+        <p>Guía paso a paso para conectar tu aplicación PHP con MySQL</p>
+    </header>
+
+    <div class="content-container">
+        <section>
+            <h2>¿Para qué sirve esta conexión?</h2>
+            <p>Conectar PHP con MySQL es una habilidad fundamental para crear aplicaciones web dinámicas. Te permite almacenar, leer y manipular datos de una base de datos MySQL, lo que es esencial para crear sitios interactivos, como foros, tiendas en línea y más.</p>
+        </section>
+
+        <section>
+            <h2>Requisitos</h2>
+            <ul>
+                <li><strong>PHP:</strong> Necesitas tener PHP instalado en tu máquina.</li>
+                <li><strong>MySQL:</strong> Deberás tener un servidor MySQL corriendo localmente o en un servidor remoto.</li>
+                <li><strong>PowerShell:</strong> Usaremos PowerShell para ejecutar comandos en este tutorial.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Instalación Paso a Paso</h2>
+            <p>A continuación te explicamos los pasos necesarios para instalar y configurar PHP y MySQL en tu máquina, y conectar ambos con un simple script PHP.</p>
+
+            <h3>1. Instalar XAMPP o WAMP</h3>
+            <p>Para facilitar la instalación, puedes usar herramientas como XAMPP o WAMP, que incluyen Apache, PHP y MySQL.</p>
+
+            <h3>2. Descargar e Instalar PHP y MySQL (si no usas XAMPP o WAMP)</h3>
+            <p>Si prefieres instalar PHP y MySQL manualmente, sigue estos pasos:</p>
+
+            <div class="command-line">
+                <p><strong>Para instalar PHP:</strong></p>
+                <p>Descarga la última versión de PHP desde <a href="https://windows.php.net/download/" target="_blank" class="btn-link">aquí</a> y extrae el archivo en una carpeta, por ejemplo, C:\php.</p>
+                <p><strong>Para agregar PHP a las variables de entorno:</strong></p>
+                <pre> [System.Environment]::SetEnvironmentVariable('Path', $env:Path + ";C:\php", [System.EnvironmentVariableTarget]::Machine) </pre>
+            </div>
+
+            <div class="command-line">
+                <p><strong>Para instalar MySQL:</strong></p>
+                <p>Descarga MySQL desde <a href="https://dev.mysql.com/downloads/installer/" target="_blank" class="btn-link">aquí</a> e instálalo.</p>
+            </div>
+
+            <h3>3. Iniciar los Servicios</h3>
+            <div class="command-line">
+                <p><strong>Para iniciar MySQL (si no usas XAMPP):</strong></p>
+                <pre> mysqld </pre>
+            </div>
+
+            <div class="command-line">
+                <p><strong>Para iniciar PHP (si no usas XAMPP):</strong></p>
+                <pre> php -S localhost:8000 </pre>
+            </div>
+
+            <h3>4. Conectar PHP con MySQL</h3>
+            <p>Ahora que tienes PHP y MySQL funcionando, el siguiente paso es conectar ambos. Aquí tienes un ejemplo básico de cómo hacerlo:</p>
+
+            <div class="command-line">
+                <pre>
+&lt;?php
+$servidor = "localhost";
+$usuario = "root";
+$contraseña = "";
+$baseDeDatos = "mi_base_de_datos";
+
+$conn = new mysqli($servidor, $usuario, $contraseña, $baseDeDatos);
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+} else {
+    echo "Conexión exitosa!";
+}
+?&gt;
+                </pre>
+            </div>
+
+            <h3>5. Verificar la Conexión</h3>
+            <p>Guarda tu archivo PHP (por ejemplo, <code>conexion.php</code>) en la carpeta de tu servidor web y accede a él en tu navegador para verificar la conexión.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 - Conexión PHP con MySQL</p>
+    </footer>
+
+</body>
+</html>
