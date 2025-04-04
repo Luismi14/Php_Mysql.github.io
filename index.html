@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conexión PHP con MySQL</title>
     <style>
+        /* Diseño atractivo y funcional */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -93,40 +94,27 @@
 
         <section>
             <h2>Instalación Paso a Paso</h2>
-            <p>A continuación te explicamos los pasos necesarios para instalar y configurar PHP y MySQL en tu máquina, y conectar ambos con un simple script PHP.</p>
-
-            <h3>1. Instalar XAMPP o WAMP</h3>
-            <p>Para facilitar la instalación, puedes usar herramientas como XAMPP o WAMP, que incluyen Apache, PHP y MySQL.</p>
-
-            <h3>2. Descargar e Instalar PHP y MySQL (si no usas XAMPP o WAMP)</h3>
-            <p>Si prefieres instalar PHP y MySQL manualmente, sigue estos pasos:</p>
-
+            <h3>Verificar PHP y MySQL</h3>
             <div class="command-line">
-                <p><strong>Para instalar PHP:</strong></p>
-                <p>Descarga la última versión de PHP desde <a href="https://windows.php.net/download/" target="_blank" class="btn-link">aquí</a> y extrae el archivo en una carpeta, por ejemplo, C:\php.</p>
-                <p><strong>Para agregar PHP a las variables de entorno:</strong></p>
-                <pre> [System.Environment]::SetEnvironmentVariable('Path', $env:Path + ";C:\php", [System.EnvironmentVariableTarget]::Machine) </pre>
+                <pre>php -v</pre>
+                <p>Verifica que PHP esté correctamente instalado.</p>
+            </div>
+            <div class="command-line">
+                <pre>mysql --version</pre>
+                <p>Verifica que MySQL esté funcionando correctamente.</p>
             </div>
 
+            <h3>Habilitar MySQLi o PDO</h3>
+            <p>Asegúrate de que la extensión <strong>MySQLi</strong> o <strong>PDO</strong> esté habilitada en tu archivo `php.ini`.</p>
+            
+            <h3>Verificar MySQL Activo</h3>
             <div class="command-line">
-                <p><strong>Para instalar MySQL:</strong></p>
-                <p>Descarga MySQL desde <a href="https://dev.mysql.com/downloads/installer/" target="_blank" class="btn-link">aquí</a> e instálalo.</p>
+                <pre>netstat -an | find "3306"</pre>
+                <p>Verifica que el puerto 3306 esté activo para conexiones de MySQL.</p>
             </div>
 
-            <h3>3. Iniciar los Servicios</h3>
-            <div class="command-line">
-                <p><strong>Para iniciar MySQL (si no usas XAMPP):</strong></p>
-                <pre> mysqld </pre>
-            </div>
-
-            <div class="command-line">
-                <p><strong>Para iniciar PHP (si no usas XAMPP):</strong></p>
-                <pre> php -S localhost:8000 </pre>
-            </div>
-
-            <h3>4. Conectar PHP con MySQL</h3>
-            <p>Ahora que tienes PHP y MySQL funcionando, el siguiente paso es conectar ambos. Aquí tienes un ejemplo básico de cómo hacerlo:</p>
-
+            <h3>Conectar PHP con MySQL</h3>
+            <p>Aquí tienes el código básico para establecer la conexión:</p>
             <div class="command-line">
                 <pre>
 &lt;?php
@@ -134,9 +122,7 @@ $servidor = "localhost";
 $usuario = "root";
 $contraseña = "";
 $baseDeDatos = "mi_base_de_datos";
-
 $conn = new mysqli($servidor, $usuario, $contraseña, $baseDeDatos);
-
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 } else {
@@ -145,13 +131,12 @@ if ($conn->connect_error) {
 ?&gt;
                 </pre>
             </div>
-
-            <h3>5. Verificar la Conexión</h3>
-            <p>Guarda tu archivo PHP (por ejemplo, <code>conexion.php</code>) en la carpeta de tu servidor web y accede a él en tu navegador para verificar la conexión.</p>
         </section>
     </div>
 
-  
+    <footer>
+        <p>&copy; 2025 - Conexión PHP con MySQL</p>
+    </footer>
 
 </body>
 </html>
